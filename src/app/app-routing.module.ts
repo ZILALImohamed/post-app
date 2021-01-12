@@ -5,7 +5,11 @@ import {HomeComponent} from './home/home.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    redirectTo: 'home',
+    pathMatch: 'full'
+  }, {
+    path: '',
+    component: HomeComponent,
   }, {
     path: 'posts',
     loadChildren: './posts/posts.module#PostsModule'

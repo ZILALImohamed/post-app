@@ -4,6 +4,7 @@ import {ListPostsComponent} from './list/list-posts.component';
 import {ListPostsResolver} from './list/list-posts.resolver';
 import {EditPostComponent} from './edit/edit-post.component';
 import {PostResolver} from './edit/post.resolver';
+import {UsersResolver} from '../users/users.resolver';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
     path: 'edit/:postId',
     component: EditPostComponent,
     resolve: {
-      post: PostResolver
+      post: PostResolver,
+      users: UsersResolver
     }
   },
 ];

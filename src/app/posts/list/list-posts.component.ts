@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Post} from '../post.model';
+import {Post} from '../../core/models/post.model';
 
 @Component({
   selector: 'app-list-posts',

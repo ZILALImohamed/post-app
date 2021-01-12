@@ -3,10 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {environment} from 'src/environments/environment';
 import {catchError, map} from 'rxjs/operators';
-import {Post} from './post.model';
+import {Post} from '../models/post.model';
+import {User} from '../models/user.model';
 
 @Injectable()
-export class PostsService {
+export class UsersService {
 
   constructor(
     private httpClient: HttpClient,
@@ -18,13 +19,8 @@ export class PostsService {
     return throwError(error.error);
   }
 
-  getPosts(): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(`${environment.backendUrl}/posts`)
-      .pipe(catchError(this.handleError));
-  }
-
-  getPostById(postId: number): Observable<Post> {
-    return this.httpClient.get<Post>(`${environment.backendUrl}/posts/${postId}`)
+  getUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(`${environment.backendUrl}/users`)
       .pipe(catchError(this.handleError));
   }
 }

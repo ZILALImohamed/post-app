@@ -5,8 +5,8 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import {Observable, of} from 'rxjs';
-import {Post} from '../post.model';
-import {PostsService} from '../posts.service';
+import {Post} from '../../core/models/post.model';
+import {PostsService} from '../../core/services/posts.service';
 
 
 @Injectable()
