@@ -1,0 +1,7 @@
+<div *ngIf="post">
+  <h2>Post {{post.id}} Details</h2>
+  <div><span>id: </span>{{post.id}}</div>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>
