@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Post} from '../../core/models/post.model';
 import {User} from '../../core/models/user.model';
 import {ActivatedRoute} from '@angular/router';
+import {PostsService} from '../../core/services/posts.service';
 
 @Component({
   selector: 'app-new-post',
@@ -11,7 +12,8 @@ import {ActivatedRoute} from '@angular/router';
 export class NewPostComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+              private postsService: PostsService) {
   }
 
   ngOnInit(): void {
@@ -24,5 +26,8 @@ export class NewPostComponent implements OnInit {
 
   createPost($event: Post): void {
     console.log($event);
+    this.postsService.createPost($event).subscribe(post => {
+      console.log(post);
+    });
   }
 }

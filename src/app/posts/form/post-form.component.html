@@ -1,6 +1,5 @@
 <div [formGroup]="postForm"
      class="was-validated">
-  {{postForm.errors | json}}
   <div class="mb-3">
     <label for="title"
            class="form-label">Title</label>
@@ -12,8 +11,8 @@
            formControlName="title"
            required>
     <div class="invalid-feedback">
-      <span *ngIf="postForm.get('title').hasError('required')">Title is required</span>
-      <span *ngIf="postForm.get('title').hasError('maxlength') || postForm.get('title').hasError('minlength')">
+      <span *ngIf="postForm.get('title')?.hasError('required')">Title is required</span>
+      <span *ngIf="postForm.get('title')?.hasError('maxlength') || postForm.get('title')?.hasError('minlength')">
       Must be 5-100 characters long</span>
     </div>
   </div>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Post} from '../../core/models/post.model';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../core/models/user.model';
+import {PostsService} from '../../core/services/posts.service';
 
 @Component({
   selector: 'app-edit-post',
@@ -9,17 +10,16 @@ import {User} from '../../core/models/user.model';
   styleUrls: ['./edit-post.component.scss']
 })
 export class EditPostComponent implements OnInit {
-  post: Post | undefined;
+  post?: Post;
   users: User[] = [];
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+              private postsService: PostsService) {
   }
 
   ngOnInit(): void {
     this.route.data.subscribe(
       ({post, users}) => {
-        console.log(post);
-        console.log(users);
         this.post = post;
         this.users = users;
       }
@@ -28,5 +28,8 @@ export class EditPostComponent implements OnInit {
 
   editPost($event: Post): void {
     console.log($event);
+    this.postsService.updatePost($event).subscribe(post => {
+      console.log(post);
+    });
   }
 }

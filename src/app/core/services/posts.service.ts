@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {environment} from 'src/environments/environment';
-import {catchError, map} from 'rxjs/operators';
+import {catchError} from 'rxjs/operators';
 import {Post} from '../models/post.model';
 
 @Injectable()
@@ -25,6 +25,16 @@ export class PostsService {
 
   getPostById(postId: number): Observable<Post> {
     return this.httpClient.get<Post>(`${environment.backendUrl}/posts/${postId}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  updatePost(post: Post): Observable<Post> {
+    return this.httpClient.put<Post>(`${environment.backendUrl}/posts/${post.id}`, JSON.stringify(post))
+      .pipe(catchError(this.handleError));
+  }
+
+  createPost(post: Post): Observable<Post> {
+    return this.httpClient.post<Post>(`${environment.backendUrl}/posts`, JSON.stringify(post))
       .pipe(catchError(this.handleError));
   }
 }
