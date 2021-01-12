@@ -1,21 +1,34 @@
-<h2>Posts</h2>
+<div class="d-flex justify-content-between">
+  <h2>Posts</h2>
+  <a type="button"
+     class="btn btn-link"
+     routerLink="new">Create new Post
+  </a>
+</div>
 <div>
   <table class="table table-hover">
     <thead>
     <tr>
-      <th scope="col" class="col-md-2">Post ID</th>
-      <th scope="col" class="col-md-2">User ID</th>
+      <th scope="col"
+          class="col-md-2">Post ID
+      </th>
+      <th scope="col"
+          class="col-md-2">User ID
+      </th>
       <th scope="col">Title</th>
       <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let post of posts" class="align-items-center">
+    <tr *ngFor="let post of posts"
+        class="align-items-center">
       <th scope="row">{{post.id}}</th>
       <td>{{post.userId}}</td>
       <td>{{post.title}}</td>
       <td>
-        <button type="button" class="btn btn-link" title="Edit post"
+        <button type="button"
+                class="btn btn-link"
+                title="Edit post"
                 (click)="edit(post)">
           <a routerLink="edit/{{post.id}}">Edit</a>
         </button>

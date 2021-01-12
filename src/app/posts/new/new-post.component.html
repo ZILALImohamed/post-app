@@ -5,12 +5,9 @@
        routerLink="/posts">Back to posts
     </a>
   </div>
-  <div *ngIf="post">
-    <h2 class="mb-3">Post {{post.id}} Details</h2>
-    <app-post-form (action)="editPost($event)"
-                   [post]="post"
+  <div >
+    <h2 class="mb-3">Create new Post</h2>
+    <app-post-form (action)="createPost($event)"
                    [users]="users"></app-post-form>
   </div>
 </div>
-
-

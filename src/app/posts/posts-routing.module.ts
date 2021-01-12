@@ -5,6 +5,7 @@ import {ListPostsResolver} from './list/list-posts.resolver';
 import {EditPostComponent} from './edit/edit-post.component';
 import {PostResolver} from './edit/post.resolver';
 import {UsersResolver} from '../users/users.resolver';
+import {NewPostComponent} from './new/new-post.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,12 @@ const routes: Routes = [
     component: EditPostComponent,
     resolve: {
       post: PostResolver,
+      users: UsersResolver
+    }
+  }, {
+    path: 'new',
+    component: NewPostComponent,
+    resolve: {
       users: UsersResolver
     }
   },

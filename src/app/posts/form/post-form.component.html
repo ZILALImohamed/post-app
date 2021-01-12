@@ -1,0 +1,52 @@
+<div [formGroup]="postForm"
+     class="was-validated">
+  {{postForm.errors | json}}
+  <div class="mb-3">
+    <label for="title"
+           class="form-label">Title</label>
+    <input maxlength="100"
+           minlength="5"
+           type="text"
+           class="form-control"
+           id="title"
+           formControlName="title"
+           required>
+    <div class="invalid-feedback">
+      <span *ngIf="postForm.get('title').hasError('required')">Title is required</span>
+      <span *ngIf="postForm.get('title').hasError('maxlength') || postForm.get('title').hasError('minlength')">
+      Must be 5-100 characters long</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="userId"
+           class="form-label">User</label>
+    <select id="userId"
+            class="form-select"
+            formControlName="userId"
+            required>
+      <option disabled
+              selected>Select a user
+      </option>
+      <option *ngFor="let user of users"
+              [ngValue]="user.id">{{user.name}}</option>
+    </select>
+    <div class="invalid-feedback">User is required</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="body"
+           class="form-label">Body</label>
+    <textarea type="text"
+              class="form-control"
+              id="body"
+              formControlName="body"
+              required></textarea>
+    <div class="invalid-feedback">Body is required</div>
+  </div>
+
+  <button type="submit"
+          class="btn btn-primary"
+          (click)="save()"
+          [disabled]="!postForm.valid">Save
+  </button>
+</div>

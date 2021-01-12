@@ -8,9 +8,11 @@ import {PostResolver} from './edit/post.resolver';
 import {PostsComponent} from './posts.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UsersResolver} from '../users/users.resolver';
+import { PostFormComponent } from './form/post-form.component';
+import { NewPostComponent } from './new/new-post.component';
 
 @NgModule({
-  declarations: [PostsComponent, ListPostsComponent, EditPostComponent],
+  declarations: [PostsComponent, ListPostsComponent, EditPostComponent, PostFormComponent, NewPostComponent],
   imports: [
     SharedModule,
     FormsModule,
