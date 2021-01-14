@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Post} from '../../core/models/post.model';
 import {User} from '../../core/models/user.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
 import {PostsService} from '../../core/services/posts.service';
+import {delay, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-post',
@@ -11,8 +12,10 @@ import {PostsService} from '../../core/services/posts.service';
 })
 export class NewPostComponent implements OnInit {
   users: User[] = [];
+  private successMessage: string | undefined;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private postsService: PostsService) {
   }
 
@@ -25,9 +28,11 @@ export class NewPostComponent implements OnInit {
   }
 
   createPost($event: Post): void {
-    console.log($event);
-    this.postsService.createPost($event).subscribe(post => {
-      console.log(post);
-    });
+    this.postsService.createPost($event)
+      .pipe(
+        tap((post) => this.successMessage = `Post ${post.id} created successfully! redirecting to list...`),
+        delay(2000)
+      ).subscribe(() => this.router.navigate(['/posts'])
+    );
   }
 }

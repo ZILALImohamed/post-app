@@ -12,7 +12,8 @@ const routes: Routes = [
     path: '',
     component: ListPostsComponent,
     resolve: {
-      posts: ListPostsResolver
+      posts: ListPostsResolver,
+      users: UsersResolver
     }
   }, {
     path: 'edit/:postId',

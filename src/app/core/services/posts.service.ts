@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
+import {EMPTY, Observable, throwError} from 'rxjs';
 import {environment} from 'src/environments/environment';
 import {catchError} from 'rxjs/operators';
 import {Post} from '../models/post.model';
@@ -15,7 +15,7 @@ export class PostsService {
 
   private handleError(error: any): Observable<never> {
     console.error(error);
-    return throwError(error.error);
+    return EMPTY;
   }
 
   getPosts(): Observable<Post[]> {
