@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Post} from '../../core/models/post.model';
 import {User} from '../../core/models/user.model';
-import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {PostsService} from '../../core/services/posts.service';
 import {delay, tap} from 'rxjs/operators';
 
@@ -12,7 +12,7 @@ import {delay, tap} from 'rxjs/operators';
 })
 export class NewPostComponent implements OnInit {
   users: User[] = [];
-  private successMessage: string | undefined;
+  successMessage: string | undefined;
 
   constructor(private route: ActivatedRoute,
               private router: Router,

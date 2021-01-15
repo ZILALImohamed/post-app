@@ -7,8 +7,8 @@ import {EditPostComponent} from './edit/edit-post.component';
 import {PostResolver} from './edit/post.resolver';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UsersResolver} from '../users/users.resolver';
-import { PostFormComponent } from './form/post-form.component';
-import { NewPostComponent } from './new/new-post.component';
+import {PostFormComponent} from './form/post-form.component';
+import {NewPostComponent} from './new/new-post.component';
 
 @NgModule({
   declarations: [ListPostsComponent, EditPostComponent, PostFormComponent, NewPostComponent],
@@ -25,7 +25,4 @@ import { NewPostComponent } from './new/new-post.component';
   ]
 })
 export class PostsModule {
-  constructor() {
-    console.log('PostsModule');
-  }
 }

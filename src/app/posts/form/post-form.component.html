@@ -27,7 +27,7 @@
               selected>Select a user
       </option>
       <option *ngFor="let user of users"
-              [ngValue]="user.id">{{user.name}}</option>
+              [ngValue]="user.id" attr.data-se-id="option_{{user.id}}">{{user.name}}</option>
     </select>
     <div class="invalid-feedback">User is required</div>
   </div>

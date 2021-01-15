@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {SharedModule} from './shared/shared.module';
 import {HomeModule} from './home/home.module';
 import {CoreModule} from './core/core.module';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,4 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor() {
-    console.log('AppModule');
-  }
 }
