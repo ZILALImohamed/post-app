@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="alert alert-success" role="alert" *ngIf="!!successMessage">
+    {{successMessage}}
+  </div>
+  <div class="mb-3">
+    <a type="button"
+       class="btn btn-link"
+       routerLink="/posts">Back to posts
+    </a>
+  </div>
+  <div *ngIf="post">
+    <h2 class="mb-3">Post {{post.id}} Details</h2>
+    <app-post-form (action)="editPost($event)"
+                   [post]="post"
+                   [users]="users"></app-post-form>
+  </div>
+</div>
